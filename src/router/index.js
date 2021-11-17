@@ -14,6 +14,10 @@ const routes = [{
     name: 'checkout',
     component: Checkout
 }, {
+    path: '/checkout/address',
+    name: 'checkout-address',
+    component: Checkout
+}, {
     path: '*',
     name: 'not-found',
     component: NotFound

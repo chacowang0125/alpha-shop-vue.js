@@ -4,7 +4,7 @@
 		<main>
 			<router-view/>
 		</main>
-		<Footer />
+		<Footer v-if="showFooter"/>
   </div>
 </template>
 
@@ -19,6 +19,11 @@ export default {
 	components: {
 		Header,
 		Footer
+	},
+	data(){
+		return{
+			showFooter: false
+		}
 	}
 }
 </script>
