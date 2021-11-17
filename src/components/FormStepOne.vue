@@ -1,6 +1,6 @@
 <template>
 <div class="form-address">
-	<h2>
+	<h2 class="form-delivery-title">
 		寄送地址
 	</h2>
 	<form action="submit">
@@ -83,6 +83,9 @@
 		border: 1px solid #4a4a4a;
 		border-radius: 4px;
 		font-weight: 400;
+	}
+	.form-delivery-title {
+		margin: 24px 0;
 	}
 
 	.form-title {

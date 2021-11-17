@@ -3,7 +3,8 @@
 		<div class="container d-flex">
 			<div class="web-left w-50 mr-5">
 				<StepperPanel />
-				<Address />
+				<!-- <Address /> -->
+				<Delivery />
 			</div>
 			<div class="web-right w-50">
 				<CartPanel />
@@ -14,14 +15,16 @@
 
 <script>
 import StepperPanel from '../components/StepperPanel.vue'
-import Address from '../components/FormStepOne.vue'
+// import Address from '../components/FormStepOne.vue'
+import Delivery from '../components/FormStepTwo.vue'
 import CartPanel from '../components/CartPanel.vue'
 
 export default ({
 	name: 'Checkout',
 	components:{
 		StepperPanel,
-		Address,
+		// Address,
+		Delivery,
 		CartPanel
 	}
 })
