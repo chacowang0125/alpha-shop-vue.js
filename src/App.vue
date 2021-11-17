@@ -1,14 +1,21 @@
 <template>
   <div id="alpha-shop">
-    <router-view/>
+		<Header />
+		<main>
+			<router-view/>
+		</main>
   </div>
 </template>
 
 <script>
 import 'bootstrap'  //js在node_module已經指定預設路徑
 import 'bootstrap/dist/css/bootstrap.min.css' //css
+import Header from './components/Header.vue'
 
 export default {
-  name: 'App'
+  name: 'App',
+	components: {
+		Header
+	}
 }
 </script>
