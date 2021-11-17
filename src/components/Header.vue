@@ -1,6 +1,6 @@
 <template>
 	<nav calss="w-100">
-		<div class="container d-flex justify-content-between">
+		<div class="header-container d-flex justify-content-between">
 			<ul class="nav-list d-flex justify-content-between align-items-center h-100">
 				<a href="#">
 					<li class="nav-item mr-3">男款</li>
@@ -38,7 +38,7 @@ a {
 nav {
 	height: 56px;
 }
-.container {
+.header-container {
 	position: relative;
 	width: 90%;
 	height: 100%;
