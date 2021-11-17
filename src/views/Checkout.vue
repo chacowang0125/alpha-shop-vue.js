@@ -6,6 +6,7 @@
 				<!-- <Address /> -->
 				<!-- <Delivery /> -->
 				<Paymant />
+				<ButtonPanel />
 			</div>
 			<div class="web-right w-50">
 				<CartPanel />
@@ -20,6 +21,7 @@ import StepperPanel from '../components/StepperPanel.vue'
 // import Delivery from '../components/FormStepTwo.vue'
 import Paymant from '../components/FormStepThree.vue'
 import CartPanel from '../components/CartPanel.vue'
+import ButtonPanel from '../components/ButtonPanel.vue'
 
 export default ({
 	name: 'Checkout',
@@ -28,6 +30,7 @@ export default ({
 		// Address,
 		// Delivery,
 		Paymant ,
+		ButtonPanel,
 		CartPanel
 	}
 })

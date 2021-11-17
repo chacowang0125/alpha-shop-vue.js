@@ -22,7 +22,7 @@ export default {
 	},
 	data(){
 		return{
-			showFooter: false
+			showFooter: true
 		}
 	}
 }
