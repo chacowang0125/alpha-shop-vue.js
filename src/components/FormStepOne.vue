@@ -84,6 +84,7 @@
 		border-radius: 4px;
 		font-weight: 400;
 	}
+	/* title整合 */
 	.form-delivery-title {
 		margin: 24px 0;
 	}

@@ -1,4 +1,4 @@
-<template class="form-delivery">
+<template>
 <div class="form-delivery">
   <h2 class="form-delivery-title">
 		運送方式
@@ -23,6 +23,7 @@
 </template>
 
 <style scoped>
+/*  */
 .form-delivery-title {
 		margin: 24px 0;
 }

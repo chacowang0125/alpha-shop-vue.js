@@ -4,7 +4,8 @@
 			<div class="web-left w-50 mr-5">
 				<StepperPanel />
 				<!-- <Address /> -->
-				<Delivery />
+				<!-- <Delivery /> -->
+				<Paymant />
 			</div>
 			<div class="web-right w-50">
 				<CartPanel />
@@ -16,7 +17,8 @@
 <script>
 import StepperPanel from '../components/StepperPanel.vue'
 // import Address from '../components/FormStepOne.vue'
-import Delivery from '../components/FormStepTwo.vue'
+// import Delivery from '../components/FormStepTwo.vue'
+import Paymant from '../components/FormStepThree.vue'
 import CartPanel from '../components/CartPanel.vue'
 
 export default ({
@@ -24,7 +26,8 @@ export default ({
 	components:{
 		StepperPanel,
 		// Address,
-		Delivery,
+		// Delivery,
+		Paymant ,
 		CartPanel
 	}
 })
