@@ -4,7 +4,7 @@
 		<main>
 			<router-view/>
 		</main>
-		<Footer v-if="showFooter"/>
+		<Footer />
   </div>
 </template>
 
@@ -22,7 +22,6 @@ export default {
 	},
 	data(){
 		return{
-			showFooter: true
 		}
 	}
 }

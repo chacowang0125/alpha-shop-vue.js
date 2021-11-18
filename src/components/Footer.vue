@@ -71,7 +71,6 @@ footer {
 }
 
 .footer-logo-img {
-	border: 1px solid blue;
 	width: 175px;
 	height: 32px;
 	margin: 75px 0;

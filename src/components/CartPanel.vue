@@ -45,47 +45,51 @@
 </template>
 
 <style scoped>
-	.cart-content{
-		width: 100%;
-    padding: 2rem 1.5rem;
-    margin: 1.5rem auto;
-    border: 1px solid #f0f0f5;
-    border-radius: 0.5rem;
-	}
+.cart-panel {
+	margin: 70px 0;
+}
 
-	.product-list {
-		margin: 2rem 0;
-	}
+.cart-content{
+	width: 100%;
+  padding: 2rem 1.5rem;
+  margin: 1.5rem auto;
+  border: 1px solid #f0f0f5;
+  border-radius: 0.5rem;
+}
 
-	.product-card {
-		position: relative
-	}
+.product-list {
+	margin: 2rem 0;
+}
 
-	.product-img {
-		width: 100px;
-		height: 100px
-	}
+.product-card {
+	position: relative
+}
 
-	.product-quantity {
-		width: 110px
-	}
-	.product-quantity-circle {
-		position: relative;
-    width: 26px;
-    height: 26px;
-    border-radius: 50%;
-    background-color: #f0f0f5;
-    text-align: center;
-    cursor: pointer;
-	}
-	.product-price {
-		position: absolute;
-		top: 0;
-		right: 1rem;
-	}
+.product-img {
+	width: 100px;
+	height: 100px
+}
 
-	.cart-delivery-info , .cart-total-info{
-		height: 40px;
-		border-top: 1px solid #f0f0f5;
-	}
+.product-quantity {
+	width: 110px
+}
+.product-quantity-circle {
+	position: relative;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background-color: #f0f0f5;
+  text-align: center;
+  cursor: pointer;
+}
+.product-price {
+	position: absolute;
+	top: 0;
+	right: 1rem;
+}
+
+.cart-delivery-info , .cart-total-info{
+	height: 40px;
+	border-top: 1px solid #f0f0f5;
+}
 </style>

@@ -6,32 +6,35 @@ import Checkout from '../views/Checkout.vue'
 Vue.use(VueRouter)
 
 const routes = [{
-        path: '/',
-        name: 'root',
-        redirect: '/checkout'
+    path: '/',
+    name: 'root',
+    redirect: '/checkout/address'
+}, {
+    path: '/checkout',
+    name: 'checkout',
+    component: Checkout,
+    redirect: '/checkout/address',
+    children: [{
+        path: 'address',
+        name: 'address',
+        component: () =>
+            import ('../components/FormStepOne.vue')
     }, {
-        path: '/checkout',
-        name: 'checkout',
-        component: Checkout
+        path: 'delivery',
+        name: 'delivery',
+        component: () =>
+            import ('../components/FormStepTwo.vue')
     }, {
-        path: '/checkout/address',
-        name: 'checkout-address',
-        component: Checkout
-    }, {
-        path: '/checkout/delivery',
-        name: 'checkout-delivery',
-        component: Checkout
-    }, {
-        path: '/checkout/payment',
-        name: 'checkout-delivery',
-        component: Checkout
-    },
-    {
-        path: '*',
-        name: 'not-found',
-        component: NotFound
-    }
-]
+        path: 'payment',
+        name: 'payment',
+        component: () =>
+            import ('../components/FormStepThree.vue')
+    }]
+}, {
+    path: '*',
+    name: 'not-found',
+    component: NotFound
+}]
 
 const router = new VueRouter({
     linkExactActiveClass: 'active',

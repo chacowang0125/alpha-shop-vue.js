@@ -2,17 +2,17 @@
 	<div id="stepper-panel" class="stepper-panel">
 		<h1 class="stepper-title">結帳</h1>
 		<div class="step-control d-flex justify-content-between align-items-center">
-			<div class="step step__one d-flex align-items-center checked">
+			<div class="step step__one d-flex align-items-center" :class="[{ active: step === 1 },{ checked: step !== 1 }]">
 				<div class="circle-container"></div>
 				<div class="label-container">寄送地址</div>
 				<span class="connect-line"></span>
 			</div>
-			<div class="step step__two d-flex align-items-center active">
+			<div class="step step__two d-flex align-items-center" :class="[{ active: step === 2 },{ checked: step === 3 }]">
 				<div class="circle-container"></div>
 				<div class="label-container">運送方式</div>
 				<span class="connect-line"></span>
 			</div>
-			<div class="step step__three d-flex align-items-center">
+			<div class="step step__three d-flex align-items-center" :class="[{ active: step === 3 }]">
 				<div class="circle-container"></div>
 				<div class="label-container">付款資訊</div>
 			</div>
@@ -73,10 +73,26 @@
 	}
 	.step.checked .circle-container , .step.checked .connect-line{
 		background-color: #2a2a2a;
-		/* color: white; */
 	}
+
 	.step.checked .circle-container::after{
-		content: "✔";
-		/* color: white */
+		content: "✓";
+		color: white;
 	}
 </style>
+
+<script>
+
+export default({
+	name: 'StepperPanel',
+	props: {
+		step: {
+			type: Number,
+			required: true,
+		}
+	},
+	data() {
+
+	},
+})
+</script>
