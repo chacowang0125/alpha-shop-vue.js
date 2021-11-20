@@ -3,29 +3,44 @@
   <h2 class="form-delivery-title">
 		運送方式
 	</h2>
-	<form action="submit">
+	<form >
 		<div class="form-content">
 			<div class="form-wrapper form-wrapper__shipping">
-        <div class="shipping-selection original mb-4 checked">
+        <div class="shipping-selection original mb-4" :class="{ checked: userInput.deliveryMethod === 'original'}" @click.stop.prevent="handleDelivery('original')">
           <div class="option"></div>
           <div class="shipping-method shipping-method__standard font-weight-bold">標準運送</div>
           <div class="shipping-price">免費</div>
         </div>
-        <div class="shipping-selection express">
+        <div class="shipping-selection express" :class="{ checked: userInput.deliveryMethod === 'express'}" @click.stop.prevent="handleDelivery('express')">
           <div class="option"></div>
           <div class="shipping-method shipping-method__express font-weight-bold">DHL 貨運</div>
           <div class="shipping-price shipping-price__express">$500</div>
         </div>
       </div>
 		</div>
+		<div class="btn-panel">
+			<router-link :to="{path: '/checkout/address'}">
+				<button class="btn previous-btn">
+					← 上一步
+				</button>
+			</router-link>
+				<button class="btn next-btn" @click.stop.prevent="nextStep()">
+					下一步 ➝
+				</button>
+		</div>
 	</form>
 </div>
+
 </template>
 
 <style scoped>
 /*  */
 .form-delivery-title {
 		margin: 24px 0;
+}
+/*  */
+.form-content {
+	height: 260px;
 }
 .shipping-selection {
 	position: relative;
@@ -34,7 +49,8 @@
 	padding: 1.2rem;
 	border: 1px solid #f0f0f5;
 	border-radius: 4px;
-	display: flex
+	display: flex;
+	cursor: pointer;
 }
 .shipping-selection.checked {
 	border: 1px solid #2a2a2a
@@ -79,4 +95,57 @@
   right: 0.8rem;
   font-size: 12px;
 }
+/* btn */
+.btn-panel {
+	position: relative;
+	width: 100%;
+	height: 100px;
+	margin: 48px 0;
+	border-top: 2px solid #e6e6eb;
+}
+
+.previous-btn{
+	position: absolute;
+	left: 0;
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+.next-btn {
+	position: absolute;
+	width: 174px;
+	right: 0;
+	top: 50%;
+	transform: translateY(-50%);
+	color: #fff;
+	border-radius: 8px;
+	background-color: #f67599;
+}
 </style>
+
+<script>
+
+export default({
+	name: 'FormStepTwo',
+	props: {
+		initialUserInput: {
+      type: Object,
+    },
+	},
+	data() {
+		return {
+			userInput: this.initialUserInput,
+		}
+	},
+	methods: {
+		handleDelivery(method) {
+			method === 'original'?
+			this.userInput.deliveryMethod = 'original' : this.userInput.deliveryMethod = 'express'
+		},
+		nextStep() {
+			this.$router.push({ name: "payment" });
+		}
+	}
+})
+</script>
+

@@ -2,17 +2,17 @@
 	<div id="stepper-panel" class="stepper-panel">
 		<h1 class="stepper-title">結帳</h1>
 		<div class="step-control d-flex justify-content-between align-items-center">
-			<div class="step step__one d-flex align-items-center" :class="[{ active: step === 1 },{ checked: step !== 1 }]">
+			<div class="step step__one d-flex align-items-center" :class="[{ active: currentRouteName === 'address' },{ checked: currentRouteName !== 'address' }]">
 				<div class="circle-container"></div>
 				<div class="label-container">寄送地址</div>
 				<span class="connect-line"></span>
 			</div>
-			<div class="step step__two d-flex align-items-center" :class="[{ active: step === 2 },{ checked: step === 3 }]">
+			<div class="step step__two d-flex align-items-center" :class="[{ active: currentRouteName === 'delivery' },{ checked: currentRouteName === 'payment' }]">
 				<div class="circle-container"></div>
 				<div class="label-container">運送方式</div>
 				<span class="connect-line"></span>
 			</div>
-			<div class="step step__three d-flex align-items-center" :class="[{ active: step === 3 }]">
+			<div class="step step__three d-flex align-items-center" :class="[{ active: currentRouteName === 'payment' }]">
 				<div class="circle-container"></div>
 				<div class="label-container">付款資訊</div>
 			</div>
@@ -86,13 +86,11 @@
 export default({
 	name: 'StepperPanel',
 	props: {
-		step: {
-			type: Number,
+		currentRouteName: {
+			type: String,
 			required: true,
 		}
 	},
-	data() {
 
-	},
 })
 </script>

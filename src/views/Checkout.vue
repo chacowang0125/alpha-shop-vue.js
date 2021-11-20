@@ -2,12 +2,12 @@
 	<div id="checkout">
 		<div class="container d-flex">
 			<div class="web-left w-50 mr-5">
-				<StepperPanel :step = "step"/>
-				<router-view />
-				<ButtonPanel :step = "step"/>
+				<StepperPanel :current-route-name="$route.name"/>
+				<router-view :initial-user-input="userInput"
+				/>
 			</div>
 			<div class="web-right w-50 ml-5">
-				<CartPanel />
+				<CartPanel :delivery-method="userInput.deliveryMethod" />
 			</div>
 		</div>
 	</div>
@@ -27,33 +27,55 @@
 <script>
 import StepperPanel from '../components/StepperPanel.vue'
 import CartPanel from '../components/CartPanel.vue'
-import ButtonPanel from '../components/ButtonPanel.vue'
+
+const STORAGE_KEY = 'alphashop_key'
 
 export default ({
 	name: 'Checkout',
 	components:{
 		StepperPanel,
-		ButtonPanel,
 		CartPanel
 	},
 	data() {
 		return {
-			step : 3,
 			userInput: {
 				id: 0,
 				name: '',
-				gender: '',
+				title: '',
 				tel: '',
 				email: '',
 				region: '',
 				address: '',
-				deliveryMethod: '',
+				deliveryMethod: 'original',
 				cardholderName: '',
 				cardNumber: '',
 				expiration: '',
 				securityCode: '',
 			}
+		}
+	},
+	methods: {
+		saveStorage() {
+			localStorage.setItem(STORAGE_KEY , JSON.stringify(this.userInput))
+		},
+		getStorageData() {
+			this.userInput = {
+				...this.userInput,
+				...JSON.parse(localStorage.getItem( STORAGE_KEY ))
 			}
+		}
+	},
+	watch: {
+		userInput: {
+    handler: function () {
+      console.log('saveStorage') //測試用
+      this.saveStorage()
+    },
+    deep: true,
+		}
+	},
+	created() {
+		this.getStorageData()
 	}
 })
 </script>

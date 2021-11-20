@@ -3,12 +3,13 @@
 	<h2 class="form-delivery-title">
 		寄送地址
 	</h2>
-	<form action="submit">
+	<form>
 		<div class="form-content">
       <div class="form-part title-form">
         <label for="title" class="form-title">稱謂</label>
         <div class="select-wrapper">
-          <select name="title" id="title" required>
+          <select name="title" id="title" v-model="userInput.title">
+						<option value="" disabled selected>請選擇</option>
             <option value="mrs">先生</option>
             <option value="ms">太太</option>
             <option value="miss">小姐</option>
@@ -17,21 +18,21 @@
       </div>
       <div class="form-part name-form">
         <label for="name" class="form-title">姓名</label>
-        <input type="text" id="name" placeholder="請輸入姓名">
+        <input type="text" id="name" v-model="userInput.name" placeholder="請輸入姓名">
       </div>
       <div class="form-part phone-form">
         <label for="phone" class="form-title">電話</label>
-        <input type="tel" id="phone" placeholder="請輸入行動電話">
+        <input type="tel" id="phone" v-model="userInput.tel" placeholder="請輸入行動電話">
       </div>
       <div class="form-part email-form">
         <label for="email" class="form-title">Email</label>
-        <input type="email" id="email" placeholder="請輸入電子郵件">
+        <input type="email" id="email" v-model="userInput.email" placeholder="請輸入電子郵件">
       </div>
       <div class="form-part region-form">
         <label for="region" class="form-title">縣市</label>
         <div class="select-wrapper">
-          <select name="region" id="region" required>
-            <option value="" disabled selected>請選擇縣市</option>
+          <select name="region" id="region" v-model="userInput.region">
+            <option value="" disabled selected>請選擇</option>
             <option value="taipei-city">台北市</option>
             <option value="new-taipei-city">新北市</option>
             <option value="taoyuan-city">桃園市</option>
@@ -58,10 +59,16 @@
         </div>
       </div>
       <div class="form-part address-form">
-        <label for="address" class="form-title">地址</label>
-        <input type="text" placeholder="請輸入地址">
+        <label for="address" class="form-title" required>地址</label>
+        <input type="text" v-model="userInput.address" placeholder="請輸入地址">
       </div>
     </div>
+		<div class="btn-panel">
+		<button class="btn next-btn"
+		@click.stop.prevent="nextStep()">
+			下一步 ➝
+		</button>
+		</div>
 	</form>
 </div>
 </template>
@@ -139,4 +146,45 @@
   .address-form{
     grid-area: address;
   }
+
+	/* btn */
+	.btn-panel {
+	position: relative;
+	width: 100%;
+	height: 100px;
+	margin: 48px 0;
+	border-top: 2px solid #e6e6eb;
+}
+.next-btn {
+	position: absolute;
+	width: 174px;
+	right: 0;
+	top: 50%;
+	transform: translateY(-50%);
+	color: #fff;
+	border-radius: 8px;
+	background-color: #f67599;
+}
 </style>
+
+<script>
+
+export default({
+	name: 'FormStepOne',
+	props: {
+		initialUserInput: {
+      type: Object,
+    },
+	},
+	data() {
+		return {
+			userInput: this.initialUserInput,
+		}
+	},
+	methods: {
+		nextStep() {
+			this.$router.push({ name: "delivery" });
+		}
+	}
+})
+</script>
